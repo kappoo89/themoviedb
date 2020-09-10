@@ -1,4 +1,6 @@
 import React from "react";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+
 import genres from "../assets/genres";
 
 function Element(props) {
@@ -17,6 +19,10 @@ function Element(props) {
       </div>
 
       <div className="movieElementRating">
+        <FaStar />
+        <FaStarHalfAlt />
+        <FaRegStar />
+
         <div className="movieElementRatingStars">{props.data.vote_average}</div>
       </div>
     </div>
