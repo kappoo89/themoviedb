@@ -7,11 +7,8 @@ function List(props) {
     props.loadMore(page);
   };
 
-  const style = {};
-
   return (
     <InfiniteScroll
-      style={style}
       pageStart={0}
       loadMore={loadMore}
       hasMore={props.hasMore}

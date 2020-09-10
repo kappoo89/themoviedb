@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.less";
+import "./assets/style/App.scss";
 
 import List from "./Components/List.js";
 
@@ -23,7 +23,7 @@ class App extends React.Component {
       hasMore: false,
     });
     fetch(
-      "https://api.themoviedb.org/3/tv/popular?api_key=64ddc370525a71b29f579200eba5b23a&language=it-IT&page=" +
+      "https://api.themoviedb.org/3/tv/popular?api_key=64ddc370525a71b29f579200eba5b23a&language=en-US&page=" +
         page
     )
       .then((response) => response.json())

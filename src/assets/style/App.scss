@@ -1,0 +1,41 @@
+.movieElement {
+  background-color: #3c3c46;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  padding-left: 20px;
+  height: 110px;
+  position: relative;
+  margin-top: 60px;
+
+  &Img {
+    width: 100px;
+    position: absolute;
+    bottom: 10px;
+    border-radius: 5px;
+  }
+
+  &Text {
+    top: 20px;
+    position: absolute;
+    color: #ffffff;
+    left: 150px;
+
+    &Title {
+    }
+
+    &Genres {
+      font-size: 12px;
+    }
+  }
+
+  &Rating {
+    bottom: 10px;
+    position: absolute;
+    left: 150px;
+    color: #ffffff;
+
+    &Stars {
+    }
+  }
+}
