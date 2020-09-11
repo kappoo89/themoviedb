@@ -19,7 +19,7 @@ function List(props) {
       }
     >
       {props.datas.map((data, i) => {
-        return <Element key={i} data={data} />;
+        return <Element key={i} data={data} genres={props.genres} />;
       })}
     </InfiniteScroll>
   );

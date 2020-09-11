@@ -1,8 +1,6 @@
 import React from "react";
 import Stars from "./Stars";
 
-import genres from "../assets/genres";
-
 function Element(props) {
   const imgPath = "https://image.tmdb.org/t/p/w500" + props.data.poster_path;
   const styleBackgroundImage = {
@@ -12,10 +10,9 @@ function Element(props) {
       props.data.backdrop_path +
       "')",
   };
-  const genresTranslator = genres.data.find((genre) => {
+  const genresTranslator = props.genres.find((genre) => {
     return genre.id === props.data.genre_ids[0];
   }).name;
-
   return (
     <div className="movieElement">
       <div

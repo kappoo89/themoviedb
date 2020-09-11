@@ -2,6 +2,7 @@ import React from "react";
 import "./assets/style/App.scss";
 
 import List from "./Components/List.js";
+import genres from "./assets/genres";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +12,8 @@ class App extends React.Component {
       hasMore: true,
     };
   }
+
+  componentDidMount() {}
 
   loadMore = (page) => {
     if (page > 500) {
@@ -44,6 +47,7 @@ class App extends React.Component {
         datas={this.state.datas}
         loadMore={this.loadMore}
         hasMore={this.state.hasMore}
+        genres={genres.data}
       />
     );
   }
