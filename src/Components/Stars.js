@@ -16,8 +16,9 @@ function Stars(props) {
   }
 
   return (
-    <div>
-      {rating} {props.avg}
+    <div className="movieElementDataRating">
+      <div className="movieElementDataRatingStars">{rating}</div>
+      <div className="movieElementDataRatingAvg">{props.avg}</div>
     </div>
   );
 }

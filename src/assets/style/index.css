@@ -1,4 +1,6 @@
+html,
 body {
   margin: 0;
   background-color: #22272e;
+  font-family: "Roboto", sans-serif;
 }

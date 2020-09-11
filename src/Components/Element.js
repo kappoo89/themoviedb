@@ -5,20 +5,35 @@ import genres from "../assets/genres";
 
 function Element(props) {
   const imgPath = "https://image.tmdb.org/t/p/w500" + props.data.poster_path;
-
+  const styleBackgroundImage = {
+    backgroundImage:
+      "url(" +
+      "'https://image.tmdb.org/t/p/w500" +
+      props.data.backdrop_path +
+      "')",
+  };
   const genresTranslator = genres.data.find((genre) => {
     return genre.id === props.data.genre_ids[0];
   }).name;
 
   return (
     <div className="movieElement">
-      <img className="movieElementImg" alt={props.data.name} src={imgPath} />
-      <div className="movieElementText">
-        <div className="movieElementTextTitle">{props.data.name}</div>
-        <div className="movieElementTextGenres">{genresTranslator}</div>
+      <div
+        className="movieElementBackground"
+        style={styleBackgroundImage}
+      ></div>
+      <div className="movieElementMedia">
+        <img
+          className="movieElementMediaImg"
+          alt={props.data.name}
+          src={imgPath}
+        />
       </div>
-
-      <div className="movieElementRating">
+      <div className="movieElementData">
+        <div className="movieElementDataText">
+          <div className="movieElementDataTextTitle">{props.data.name}</div>
+          <div className="movieElementDataTextGenres">{genresTranslator}</div>
+        </div>
         <Stars avg={Math.round((props.data.vote_average / 2) * 2) / 2} />
       </div>
     </div>
