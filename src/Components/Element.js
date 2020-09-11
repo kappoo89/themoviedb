@@ -1,4 +1,5 @@
 import React from "react";
+
 import Stars from "./Stars";
 
 function Element(props) {
@@ -10,9 +11,16 @@ function Element(props) {
       props.data.backdrop_path +
       "')",
   };
-  const genresTranslator = props.genres.find((genre) => {
-    return genre.id === props.data.genre_ids[0];
-  }).name;
+  const genresTranslatorFromId = (ids, i) => {
+    const genre = props.genres.find((genre) => {
+      return genre.id === ids[i];
+    });
+    if (genre == null) {
+      return genresTranslatorFromId(ids, ++i);
+    }
+    return genre.name;
+  };
+
   return (
     <div className="movieElement">
       <div
@@ -29,7 +37,9 @@ function Element(props) {
       <div className="movieElementData">
         <div className="movieElementDataText">
           <div className="movieElementDataTextTitle">{props.data.name}</div>
-          <div className="movieElementDataTextGenres">{genresTranslator}</div>
+          <div className="movieElementDataTextGenres">
+            {genresTranslatorFromId(props.data.genre_ids, 0)}
+          </div>
         </div>
         <Stars avg={Math.round((props.data.vote_average / 2) * 2) / 2} />
       </div>
