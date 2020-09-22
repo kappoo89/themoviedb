@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import Stars from "./Stars";
 
 function Element(props) {
@@ -22,7 +22,7 @@ function Element(props) {
   };
 
   return (
-    <div className="movieElement">
+    <Link className="movieElement" to={"/detail/" + props.data.id}>
       <div
         className="movieElementBackground"
         style={styleBackgroundImage}
@@ -41,9 +41,9 @@ function Element(props) {
             {genresTranslatorFromId(props.data.genre_ids, 0)}
           </div>
         </div>
-        <Stars avg={Math.round((props.data.vote_average / 2) * 2) / 2} />
+        <Stars avg={props.data.vote_average} />
       </div>
-    </div>
+    </Link>
   );
 }
 

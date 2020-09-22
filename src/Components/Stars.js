@@ -5,7 +5,7 @@ function Stars(props) {
   let rating = [];
 
   for (let i = 0; i < 5; i++) {
-    const count = props.avg - i;
+    const count = Math.round((props.avg / 2) * 2) / 2 - i;
     if (count < 0.5) {
       rating.push(<FaRegStar key={i} />);
     } else if (count >= 0.5 && count < 1) {
@@ -16,9 +16,9 @@ function Stars(props) {
   }
 
   return (
-    <div className="movieElementDataRating">
-      <div className="movieElementDataRatingStars">{rating}</div>
-      <div className="movieElementDataRatingAvg">{props.avg}</div>
+    <div className="rating">
+      <div className="ratingStars">{rating}</div>
+      <div className="ratingAvg">{props.avg}</div>
     </div>
   );
 }

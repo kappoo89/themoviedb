@@ -1,37 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import AppList from "./pages/AppList";
+import AppDetail from "./pages/AppDetail";
 import "./assets/style/App.scss";
-
-import List from "./Components/List.js";
-import genres from "./assets/genres";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [datas, setDatas] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
-
-  const loadMore = (page) => {
-    setHasMore(false);
-    if (page > 500) {
-      return;
-    }
-    fetch(
-      "https://api.themoviedb.org/3/tv/popular?api_key=64ddc370525a71b29f579200eba5b23a&language=en-US&page=" +
-        page
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setDatas((prevDatas) => [...prevDatas, ...data.results]);
-        setHasMore(true);
-      });
-  };
-
   return (
-    <List
-      className="list"
-      datas={datas}
-      loadMore={loadMore}
-      hasMore={hasMore}
-      genres={genres.data}
-    />
+    <Router>
+      <Switch>
+        <Route path="/detail/:id">
+          <AppDetail />
+        </Route>
+        <Route path="/">
+          <AppList />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
