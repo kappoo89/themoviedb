@@ -61,19 +61,19 @@ function AppDetail() {
           <div className="detailCardRow">
             <div className="detailCardRowGenres">
               <span className="detailCardRowGenresTitle">Genres</span>
-              <p className="detailCardRowIntroText">{genres}</p>
+              <div className="detailCardRowGenresData">{genres}</div>
             </div>
           </div>
           <div className="detailCardRow">
             <div className="detailCardRowIntro">
               <span className="detailCardRowIntroTitle">Introduce</span>
-              <p className="detailCardRowIntroData">{data.overview}</p>
+              <div className="detailCardRowIntroData">{data.overview}</div>
             </div>
           </div>
           <div className="detailCardRow">
             <div className="detailCardRowCreators">
               <span className="detailCardRowCreatorsTitle">Creators</span>
-              <p className="detailCardRowCreatorsData">{creators}</p>
+              <div className="detailCardRowCreatorsData">{creators}</div>
             </div>
           </div>
 
